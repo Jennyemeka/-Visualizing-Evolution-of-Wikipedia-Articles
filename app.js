@@ -68,7 +68,7 @@ $(document).ready(function () {
             const pageLengthData = data.map(row => row.page_length).slice(0, 20);
             const revisionTimestamps = data.map(row => row.revision_timestamp).slice(0, 20);
 
-            // Creating a pie chart using Chart.js
+
             new Chart('pageLengthPieChart', {
                 type: 'pie',
                 data: {
@@ -124,5 +124,7 @@ $(document).ready(function () {
 
     fetchDataAndCreatePieChart();
 });
+
+
 
 
