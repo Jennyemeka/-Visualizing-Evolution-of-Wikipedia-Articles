@@ -1,0 +1,16 @@
+['wiki_db', 
+'page_id', 
+'revision_id', 
+'revision_timestamp', 
+'page_length',
+'num_refs', 
+'num_wikilinks', 
+'num_categories', 
+'num_media', 
+'num_headings', 
+'item_id', 
+'pred_qual', 
+'page_title', 
+'quality_class', 
+'importance_class'
+]

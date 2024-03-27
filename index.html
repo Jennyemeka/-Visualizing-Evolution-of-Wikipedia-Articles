@@ -31,81 +31,31 @@
 
     <!--pie chart-->
 
+    <div class="mb-5 d-flex justify-content-center flex-column align-items-center">
     <h2 class="py-10 text-center title px-2">
       Quality Class Distribution for Climate Change Articles
     </h2>
-    <div class="mb-5 d-flex justify-content-center align-items-center py-5">
-      <canvas id="myChart" class="w-50 h-100"></canvas>
+  <div class="w-50 h-100 mb-5 d-flex justify-content-center align-items-center">
+      <canvas id="pageLengthPieChart"></canvas>
+    </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-      const ctx = document.getElementById("myChart");
-
-      new Chart(ctx, {
-        type: "pie",
-        data: {
-          labels: [
-            "January",
-            "Febuary",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-          ],
-          datasets: [
-            {
-              label: "Wikimedia Article Statistics",
-              data: [150, 50, 100, 20, 43, 43, 21, 56, 76, 54, 43, 100],
-              backgroundColor: [
-                "rgb(255, 99, 132)",
-                "rgb(54, 162, 235)",
-                "rgb(54, 162, 0)",
-                "rgb(255, 20, 86)",
-                "rgb(54, 162, 235)",
-                "rgb(200, 20, 0)",
-                "rgb(210, 162, 255)",
-                "rgb(0, 191, 2555)",
-                "rgb(255, 10, 0)",
-                "rgb(25, 20, 255)",
-                "rgb(54, 162, 0)",
-                "rgb(255, 205, 6)",
-              ],
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
-    </script>
-
-    <!--polararea chart-->
+    <!--bar chart-->
 
     <h2 class="py-10 text-center title px-2">
       Importance Class Distribution for Climate Change Articles
     </h2>
     <div class="mb-5 d-flex justify-content-center align-items-center py-5">
-      <canvas id="myChart2" class="w-50 h-100"></canvas>
+      <canvas id="bar-chart" class="w-50 h-100"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-      const ctxs = document.getElementById("myChart2");
+      const ctxs = document.getElementById("bar-chart");
 
       new Chart(ctxs, {
-        type: "polarArea",
+        type: "bar",
         data: (data = {
           labels: [
             "January",
@@ -124,7 +74,7 @@
           datasets: [
             {
               label: "Wikimedia Article Statistics",
-              data: [150, 50, 100, 20, 43, 43, 21, 56, 76, 54, 43, 100],
+              data: "data.json",
               backgroundColor: [
                 "rgb(255, 99, 132)",
                 "rgb(54, 162, 235)",
@@ -144,12 +94,13 @@
         }),
 
         options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
+    scales: {
+      myScale: {
+        type: 'logarithmic',
+        position: 'right', // `axis` is determined by the position as `'y'`
+      }
+    }
+  }
       });
     </script>
 
@@ -162,7 +113,6 @@
 <!-- JavaScript includes -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
