@@ -69,7 +69,7 @@ $(document).ready(function () {
             const revisionTimestamps = data.map(row => row.revision_timestamp).slice(0, 20);
 
 
-            new Chart('pageLengthPieChart', {
+            new Chart('PageviewsPieChart', {
                 type: 'pie',
                 data: {
                     labels: revisionTimestamps,
@@ -90,12 +90,12 @@ $(document).ready(function () {
                           ],
                         data: pageLengthData,
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)', // Red
-                            'rgba(54, 162, 235, 0.5)', // Blue
-                            'rgba(255, 206, 86, 0.5)', // Yellow
-                            'rgba(75, 192, 192, 0.5)', // Green
-                            'rgba(153, 102, 255, 0.5)', // Purple
-                            'rgba(255, 159, 64, 0.5)' // Orange
+                            'rgba(255, 99, 132, 0.5)', 
+                            'rgba(54, 162, 235, 0.5)', 
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)', 
+                            'rgba(255, 159, 64, 0.5)' 
                         ],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',
