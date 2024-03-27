@@ -73,8 +73,8 @@
           ],
           datasets: [
             {
-              label: "Wikimedia Article Statistics",
-              data: [150, 50, 100, 20, 43, 43, 21, 56, 76, 54, 43, 100],
+              label: "Number of Media",
+              data: [150, 50, 100, 20,234, 43,500,  21, 675, 400,  367, 1],
               backgroundColor: [
                 "rgb(255, 99, 132)",
                 "rgb(54, 162, 235)",
@@ -104,72 +104,67 @@
       });
     </script>
 
+
+
 <h2 class="py-10 text-center title px-2">
   Importance Class Distribution for Climate Change Articles
 </h2>
 <div class="mb-5 d-flex justify-content-center align-items-center py-5">
-  <canvas id="linechart" class="w-50 h-100"></canvas>
+  <canvas id="lines-chart" class="w-50 h-100"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
-  
-const ctx = document.getElementById('lineChart');
-const lineChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: labels,
-    datasets: [{
-        labels: [
-            "January",
-            "Febuary",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
+  const ctxss = document.getElementById("lines-chart");
+
+  new Chart(ctxss, {
+    type: "line",
+    data: (data = {
+      labels: [
+        "January",
+        "Febuary",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+      datasets: [
+        {
+          axis: 'y',
+          label: "Number of References",
+          data: [0.5, 0.7, 0.8, 1.0, 1.5, 0.6, 0.9, 0.4, 0.7, 0.5, 0.1, 0.2],
+          backgroundColor: [
+            "rgb(255, 99, 132)",
+            "rgb(54, 162, 235)",
+            "rgb(54, 162, 0)",
+            "rgb(255, 20, 86)",
+            "rgb(54, 162, 235)",
+            "rgb(200, 20, 0)",
+            "rgb(210, 162, 255)",
+            "rgb(0, 191, 2555)",
+            "rgb(255, 10, 0)",
+            "rgb(25, 20, 255)",
+            "rgb(54, 162, 0)",
+            "rgb(255, 205, 6)",
           ],
-        data: [0.5, 0.7, 0.8],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.5)', // Red
-            'rgba(54, 162, 235, 0.5)', // Blue
-            'rgba(255, 206, 86, 0.5)', // Yellow
-            'rgba(75, 192, 192, 0.5)', // Green
-            'rgba(153, 102, 255, 0.5)', // Purple
-            'rgba(255, 159, 64, 0.5)' // Orange
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      x: {
-        type: 'time',
-        time: {
-          unit: 'month'
+        },
+      ],
+    }),
+
+    options: {
+        scales: {
+            y: {
+                stacked: true
+            }
         }
-      },
-      y: {
-        min: 0,
-        max: 1
-      }
     }
-  }
-});
+  });
 </script>
 
 <footer class="footer mt-auto py-3 bg-light">
