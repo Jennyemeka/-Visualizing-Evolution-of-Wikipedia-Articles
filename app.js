@@ -76,7 +76,20 @@ $(document).ready(function () {
             new Chart('pageviewsPieChart', {
                 type: 'line',
                 data: {
-                    labels: formattedDates,
+                    labels:[
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December",
+                      ],
                     datasets: [{
                         labels:"pageLengthData",
                         data: pageLengthData,
