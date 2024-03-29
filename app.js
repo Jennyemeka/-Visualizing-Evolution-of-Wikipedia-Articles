@@ -66,28 +66,19 @@ $(document).ready(function () {
 
             // Extracting required data for the pie chart
             const pageLengthData = data.map(row => row.page_length).slice(0, 20);
-            const revisionTimestamps = data.map(row => row.revision_timestamp).slice(0, 20);
+            const dates = data.map(row => new Date( row.revision_timestamp));
 
+            const formattedDates = dates.map(date => {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString('en-US', options);
+            });
 
-            new Chart('PageviewsPieChart', {
-                type: 'pie',
+            new Chart('pageviewsPieChart', {
+                type: 'line',
                 data: {
-                    labels: revisionTimestamps,
+                    labels: formattedDates,
                     datasets: [{
-                        labels: [
-                            "January",
-                            "Febuary",
-                            "March",
-                            "April",
-                            "May",
-                            "June",
-                            "July",
-                            "August",
-                            "September",
-                            "October",
-                            "November",
-                            "December",
-                          ],
+                        labels:"pageLengthData",
                         data: pageLengthData,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.5)', 
@@ -109,13 +100,22 @@ $(document).ready(function () {
                     }]
                 },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    title: {
-                        display: true,
-                        text: 'Page Length Over Time (Pie Chart)'
-                    },
-                }
+                    scales: {
+                        x: {
+                          type: 'category',
+                          title: {
+                            display: true,
+                            text: 'Month'
+                          }
+                        },
+                        y: {
+                          title: {
+                            display: true,
+                            text: 'Page Length'
+                          }
+                        }
+                      }
+                    }
             });
         } catch (error) {
             console.error('Error fetching data:', error);
