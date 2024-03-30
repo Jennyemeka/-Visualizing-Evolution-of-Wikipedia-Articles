@@ -29,86 +29,39 @@
     </div>
     
 
-    <!--pie chart-->
+    <!--line chart-->
 
-    <div class="mb-5 d-flex justify-content-center flex-column align-items-center">
+  <div class="d-flex justify-content-center flex-column align-items-center mb-5">
     <h2 class="py-10 text-center title px-2">
-      Monthly Pageviews Over Time
+      Yearly Pagelength Over Time
     </h2>
-  <div class="w-50 h-100 mb-5 d-flex justify-content-center align-items-center">
-      <canvas id="pageviewsPieChart"></canvas>
+  <div class="chart-container" style="position: relative; height:50vh; width:80vw" >
+      <canvas id="pageLengthChart" ></canvas>
     </div>
-    </div>
+    <p class="description">
+      The chart visualizes the page length of Wikipedia articles over the years from 2006 to 2022. It displays the increase in page length over time, with each data point representing the page length for a specific year.
 
-      <!--line chart-->
-    <h2 class="py-10 text-center title px-2">
-      Page Length Over Time
-    </h2>
-    <div class="mb-5 d-flex justify-content-center align-items-center py-5">
-      <canvas id="page-length-chart" class="w-50 h-100"></canvas>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      const ctx = document.getElementById('page-length-chart');
-    
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-          ],
-          datasets: [{
-            label: 'Page Length',
-            data: [5000, 5200, 5400, 5500, 5600, 5800, 5900, 6000, 6200, 6400, 6600, 6700],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            x: {
-              type: 'category',
-              title: {
-                display: true,
-                text: 'Month'
-              }
-            },
-            y: {
-              title: {
-                display: true,
-                text: 'Page Length'
-              }
-            }
-          }
-        }
-      });
-    </script>
-    
+      The x-axis represents the years from 2006 to 2022, while the y-axis represents the page length of Wikipedia articles. The line on the chart rises as we move from left to right, indicating the growth in page length over the years.
+      
+      This visualization allows us to observe the general trend of page length expansion in Wikipedia articles over the specified time period. It provides insight into how the length of articles has evolved over time, potentially reflecting changes in content depth, complexity, or coverage.
+    </p>
+  </div>
 
 
     <!--bar chart-->
-
+    <div class="d-flex justify-content-center flex-column align-items-center mb-5">
     <h2 class="py-10 text-center title px-2">
       Number of Media Files Over Time
     </h2>
-    <div class="mb-5 d-flex justify-content-center align-items-center py-5">
-      <canvas id="bar-chart" class="w-50 h-100"></canvas>
+  
+      <div class="chart-container" style="position: relative; height:50vh; width:80vw; align-items: center;" >
+      <canvas id="bar-chart"></canvas>
+    </div>
+    <p class="description">The chart is visualizing the number of media files associated with Wikipedia articles over the years from 2006 to 2022. Each bar on the chart represents a specific year, and the height of the bar corresponds to the number of media files associated with articles in that year. The colors of the bars vary to make them distinguishable, and the x-axis is labeled with the years, while the y-axis indicates the number of media files. This chart allows viewers to see trends and fluctuations in the number of media files over the specified time period.</p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       const ctxs = document.getElementById("bar-chart");
 
@@ -116,23 +69,12 @@
         type: "bar",
         data: (data = {
           labels: [
-            "January",
-            "Febuary",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
+          2006, 2007, 2008,2009,2010,2011,2012,2013,2014,2015, 2016, 2017, 2018, 2019,2020,2021,2022
           ],
           datasets: [
             {
               label: "Number of Media",
-              data: [150, 50, 100, 20,234, 43,500,  21, 675, 400,  367, 1],
+              data: [15, 16, 17,18,23, 17, 19, 24,27, 25,27, 31,23,27,33,37,41],
               backgroundColor: [
                 "rgb(255, 99, 132)",
                 "rgb(54, 162, 235)",
@@ -152,38 +94,40 @@
         }),
 
         options: {
-    scales: {
-      myScale: {
-        type: 'logarithmic',
-        position: 'right', // `axis` is determined by the position as `'y'`
-      },
-            x: {
-              type: 'category',
-              title: {
-                display: true,
-                text: 'Month'
-              }
-            },
-            y: {
-              title: {
-                display: true,
-                text: 'Number of Media'
-              }
-            }
-          }
+          responsive: true,
+            scales: {
+              x: {
+                type: 'category',
+                title: {
+                  display: true,
+                  text: 'Year (2006 - 2022)'
+                }
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Number of Media'
+                }
+                        }
+                      }
         }
     
       });
     </script>
+    
 
 
  <!--line chart-->
+ <div class="d-flex justify-content-center flex-column align-items-center mb-5">
 <h2 class="py-10 text-center title px-2">
   Number of References Over Time
 </h2>
-<div class="mb-5 d-flex justify-content-center align-items-center py-5">
-  <canvas id="lines-chart" class="w-50 h-100"></canvas>
+
+<div class="chart-container" style="position: relative; height:70vh; width:80vw; align-items: center;" >
+  <canvas id="lines-chart"></canvas>
 </div>
+<p class="description">This line chart is visualizing monthly reference counts. Instead of showing daily variations, it simplifies the data by representing each month with its highest reference count. The x-axis displays the months of the year, while the y-axis indicates the highest reference count for each month. The chart's appearance, including axis titles and colors, is configured to effectively communicate the data. This visualization serves as a tool for analyzing trends in reference data over time, providing insights into monthly peaks in activity.</p>
+ </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -210,7 +154,7 @@
         {
           axis: 'y',
           label: "Number of References",
-          data: [0.5, 0.7, 0.8, 1.0, 1.5, 0.6, 0.9, 0.4, 0.7, 0.5, 0.1, 0.2],
+          data: [322, 317, 336, 339, 348, 348, 341, 336, 345, 344, 490, 320],
           backgroundColor: [
             "rgb(255, 99, 132)",
             "rgb(54, 162, 235)",
@@ -251,12 +195,19 @@
 
 
  <!--line chart-->
+ <div class="d-flex justify-content-center flex-column align-items-center mb-5">
 <h2 class="py-10 text-center title px-2">
   Number of Wikilinks Over Time
 </h2>
-<div class="mb-5 d-flex justify-content-center align-items-center py-5">
-  <canvas id="line-chart" class="w-50 h-100"></canvas>
+<div class="chart-container" style="position: relative; height:70vh; width:80vw; align-items: center;" >
+  <canvas id="line-chart"></canvas>
 </div>
+<p class="description">instead of representing monthly reference counts, it represents yearly counts of Wikilinks. Each year from 2006 to 2022 is displayed on the x-axis, while the corresponding number of Wikilinks for each year is shown on the y-axis.
+
+  Similar to the previous code snippet, it configures the appearance of the chart, including axis titles and colors, to effectively communicate the data to viewers. The data provided includes the number of Wikilinks for each year, and the chart visually represents this information.
+  
+  Overall, this code serves as a tool for visualizing and analyzing trends in Wikilinks over the specified years, offering insights into any patterns or fluctuations in activity over time.</p>
+ </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -266,24 +217,13 @@
     type: "line",
     data: (data = {
       labels: [
-        "January",
-        "Febuary",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+      2006, 2007, 2008,2009,2010,2011,2012,2013,2014,2015, 2016, 2017, 2018, 2019,2020,2021,2022
       ],
       datasets: [
         {
           axis: 'y',
           label: "Number of Wikilinks",
-          data: [0.3, 0.6, 0.9, 1.2, 1.3, 0.8, 0.5, 0.6, 0.9, 0.7, 0.3, 0.1],
+          data: [394, 490, 641, 675, 445, 458, 458, 463, 383, 368, 391, 392,445,438,491,432,485,],
           backgroundColor: [
             "rgb(255, 99, 132)",
             "rgb(54, 162, 235)",
@@ -308,7 +248,7 @@
               type: 'category',
               title: {
                 display: true,
-                text: 'Month'
+                text: 'Years'
               }
             },
             y: {
@@ -321,6 +261,8 @@
         }
   });
 </script>
+
+
 
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">

@@ -30,3 +30,7 @@ thead, tfoot {
     z-index: 1; /* Ensure headers and footers appear above table body */
 }
 
+.description{
+    margin:auto 20px;
+    text-align: center;
+}

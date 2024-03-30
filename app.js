@@ -64,35 +64,13 @@ $(document).ready(function () {
             const response = await fetch('data.json'); // Assuming you have a JSON file named data.json
             const data = await response.json();
 
-            // Extracting required data for the pie chart
-            const pageLengthData = data.map(row => row.page_length).slice(0, 20);
-            const dates = data.map(row => new Date( row.revision_timestamp));
-
-            const formattedDates = dates.map(date => {
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                return date.toLocaleDateString('en-US', options);
-            });
-
-            new Chart('pageviewsPieChart', {
+            new Chart('pageLengthChart', {
                 type: 'line',
                 data: {
-                    labels:[
-                        "January",
-                        "February",
-                        "March",
-                        "April",
-                        "May",
-                        "June",
-                        "July",
-                        "August",
-                        "September",
-                        "October",
-                        "November",
-                        "December",
-                      ],
+                    labels: [2006, 2007, 2008,2009,2010,2011,2012,2013,2014,2015, 2016, 2017, 2018, 2019,2020,2021,2022],
                     datasets: [{
                         labels:"pageLengthData",
-                        data: pageLengthData,
+                        data: [78412, 88365, 109881,106218,201062,151743,155940,167732,172575,183522,197934,203072,203927,288828,296810,280621,	277691],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.5)', 
                             'rgba(54, 162, 235, 0.5)', 
@@ -113,19 +91,21 @@ $(document).ready(function () {
                     }]
                 },
                 options: {
-                    scales: {
-                        x: {
-                          type: 'category',
-                          title: {
-                            display: true,
-                            text: 'Month'
-                          }
-                        },
-                        y: {
-                          title: {
-                            display: true,
-                            text: 'Page Length'
-                          }
+                    responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                type: 'category',
+                title: {
+                  display: true,
+                  text: 'Year (2006 - 2022)'
+                }
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Page Length'
+                }
                         }
                       }
                     }
@@ -137,7 +117,3 @@ $(document).ready(function () {
 
     fetchDataAndCreatePieChart();
 });
-
-
-
-
